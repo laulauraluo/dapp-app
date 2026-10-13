@@ -1,13 +1,12 @@
-import { Web3Provider } from '@ethersproject/providers'; // For MetaMask
-import { Contract } from 'ethers'; // For interacting with contracts
+import { BrowserProvider, Contract } from 'ethers'; // MetaMask provider + contract calls (ethers v6)
 import contractArtifact from './abi/Storage.json'; // Ensure this path is correct
 
 const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS; // Ensure this is set correctly in your .env file
 
 export async function getContract() {
-  const provider = new Web3Provider(window.ethereum);
-  await provider.send('eth_requestAccounts', []); // Request user accounts
-  const contract = new Contract(contractAddress, contractArtifact.abi, provider.getSigner());
+  const provider = new BrowserProvider(window.ethereum);
+  const signer = await provider.getSigner(); // Requests user accounts
+  const contract = new Contract(contractAddress, contractArtifact.abi, signer);
   return contract;
 }
 
