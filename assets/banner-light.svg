@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="250" viewBox="0 0 880 250" font-family="Consolas, Menlo, monospace">
+<style>.sea{animation:drift 7s ease-in-out infinite alternate}.r{animation-direction:alternate-reverse}@keyframes drift{from{transform:translateX(-8px)}to{transform:translateX(8px)}}@media (prefers-reduced-motion:reduce){.sea{animation:none}}</style>
+<rect x="0.5" y="0.5" width="879" height="249" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<text x="28" y="44" font-size="22px" font-weight="bold" fill="#0969da">laulauraluo/dapp-app</text>
+<text x="28" y="70" font-size="13px" fill="#24292f">React + ethers v6 starter: click a button, MetaMask signs, your contract answers.</text>
+<text x="28" y="108" font-size="12px" fill="#953800" xml:space="preserve">   ┌─────────┐   connect   ┌──────────┐   store(42)   ┌─────────────┐</text>
+<text x="28" y="125" font-size="12px" fill="#953800" xml:space="preserve">   │  click  │ ──────────▶ │ MetaMask │ ────────────▶ │ Storage.sol │</text>
+<text x="28" y="142" font-size="12px" fill="#953800" xml:space="preserve">   └─────────┘             └──────────┘               └──────┬──────┘</text>
+<text x="28" y="159" font-size="12px" fill="#953800" xml:space="preserve">        ▲                                                     │</text>
+<text x="28" y="176" font-size="12px" fill="#953800" xml:space="preserve">        └───────────────────── retrieve() = 42 ◀──────────────┘</text>
+<text x="14" y="216" font-size="12px" fill="#2865ad" class="sea" xml:space="preserve">~^~-~^~~-^~~^-~~^~-~^~~-^~~^-~~^~-~^~~-^~~^-~~^~-~^~~-^~~^-~~^~-~^~~-^~~^-~~^~-~^~~-^~~^-~~^~-~^~~-^~~^-~~</text>
+<text x="14" y="230" font-size="12px" fill="#0969da" class="sea r" xml:space="preserve">-~~^~~-~^~-~~^~~-~^~-~~^~~-~^~-~~^~~-~^~-~~^~~-~^~-~~^~~-~^~-~~^~~-~^~-~~^~~-~^~-~~^~~-~^~-~~^~~-~^~-~~^~~-~^</text>
+</svg>
