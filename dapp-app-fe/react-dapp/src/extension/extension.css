@@ -1,0 +1,46 @@
+/* Visual extension: restyles the original page and adds the call panel. */
+body {
+  min-height: 100vh;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='80'%3E%3Cg fill='none' stroke='white' stroke-opacity='.09' stroke-width='2'%3E%3Crect x='10' y='25' width='30' height='30' rx='6'/%3E%3Crect x='90' y='25' width='30' height='30' rx='6'/%3E%3Cpath d='M0 40h10M40 40h50M120 40h40'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(135deg, #1e1b4b 0%, #4c1d95 45%, #0e7490 100%) fixed;
+  background-size: 160px 80px, cover;
+  animation: vx-drift 40s linear infinite;
+}
+/* The app's header shrinks to its content so the panel fits below it; buttons sit on one row. */
+.App-header { min-height: auto; padding: 40px 16px 20px; flex-flow: row wrap; justify-content: center; background: transparent; }
+.App-header h1, .App-header p { flex-basis: 100%; margin: 0 0 12px; }
+.App-header button {
+  margin: 4px; padding: 10px 18px; border: 0; border-radius: 12px;
+  font-size: 15px; font-weight: 600; color: #1e1b4b; background: #e9d5ff; cursor: pointer;
+}
+.App-header button:hover { background: #fff; }
+
+.vx-panel {
+  width: min(520px, calc(100% - 32px)); box-sizing: border-box; margin: 0 auto 32px; padding: 16px 18px;
+  border-radius: 18px; color: #f5f3ff; font: 13px system-ui, sans-serif;
+  background: rgba(15, 10, 40, 0.55); border: 1px solid rgba(255, 255, 255, 0.16); backdrop-filter: blur(12px);
+}
+.vx-demo { margin: 0 0 12px; text-align: center; color: #fde68a; }
+.vx-path { display: flex; align-items: center; margin-bottom: 12px; }
+.vx-node { display: flex; flex-direction: column; align-items: center; gap: 4px; opacity: 0.45; transition: 0.3s; }
+.vx-node span {
+  width: 44px; height: 44px; display: grid; place-items: center; font-size: 20px;
+  border-radius: 14px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.vx-node.on { opacity: 1; }
+.vx-node.on span { border-color: #2dd4bf; background: rgba(45, 212, 191, 0.2); box-shadow: 0 0 16px rgba(45, 212, 191, 0.6); }
+.vx-edge { flex: 1; height: 3px; margin: 0 8px 18px; border-radius: 3px; background: rgba(255, 255, 255, 0.15); position: relative; overflow: hidden; }
+.vx-edge.done { background: #2dd4bf; }
+.vx-edge.active::after {
+  content: ''; position: absolute; inset: 0 auto 0 -30%; width: 30%;
+  background: linear-gradient(90deg, transparent, #c4b5fd, transparent); animation: vx-travel 0.9s linear infinite;
+}
+.vx-log { list-style: none; margin: 0; padding: 10px 12px; min-height: 96px; border-radius: 12px; background: rgba(0, 0, 0, 0.3); font: 12px/1.7 ui-monospace, Menlo, monospace; }
+.vx-empty { opacity: 0.6; }
+
+@keyframes vx-drift { to { background-position: 160px 80px, 0 0; } }
+@keyframes vx-travel { to { left: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  body, .vx-edge.active::after { animation: none; }
+}
